@@ -3,8 +3,11 @@ import "./LoginPage.scss";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {FormSchema, FormSchemaType} from "./LoginFormValidationInfo";
 import {zodResolver} from "@hookform/resolvers/zod/dist/zod";
+import { useNavigate } from "react-router-dom";
 
 export function LoginPage() {
+    const navigate = useNavigate();
+
     const {
         register,
         watch,
@@ -18,6 +21,7 @@ export function LoginPage() {
 
     const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
         console.log("Submit data:", data)
+        navigate("/main")
     };
 
 
