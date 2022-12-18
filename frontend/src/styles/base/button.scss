@@ -1,0 +1,29 @@
+@use "sass:math";
+
+@import "../variables";
+@import "../base/mixins";
+
+.button {
+  padding: 0px 0px;
+  display: inline-block;
+  color: $backgroundColor;
+
+  background-color: transparent;
+  //box-shadow: 3px 3px 15px rgba(0, 0, 0, 1);
+  border: 2px solid $backgroundColor;
+  border-radius: 3px;
+  font-weight: 600;
+  font-size: rem(15);
+  letter-spacing: rem(3);
+  padding: rem(8) rem(40);
+  text-align: center;
+
+  transition: box-shadow 500ms ease-in-out, color 300ms ease-in-out;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: #fff;
+      box-shadow: 0 0 40px 40px $backgroundColor inset;
+    }
+  }
+}
