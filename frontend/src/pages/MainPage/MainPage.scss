@@ -5,18 +5,38 @@
 $changeGridWidth: rem(500);
 
 .main-page{
+
+  padding: 0 rem(55);
+  background: #F1F1F1;
+
   &__section{
+    max-width: rem(1440);
     height: 100vh;
+
   }
 }
 
 .header{
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr;
+  font-family: "Noto Serif KR";
+  display: flex;
+  flex-direction: column;
+
+
+  &__body{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+    column-gap: rem(50);
+    height: 100vh;
+    padding-bottom: rem(50);
+  }
 
   &__title{
+    font-weight: 700;
+    font-size: rem(40);
+    letter-spacing: 0.2em;
     grid-column: 1 / 3;
+    margin: rem(30) 0;
 
     @media (max-width: $mobile) {
       grid-column: 1 / 1;
@@ -33,6 +53,12 @@ $changeGridWidth: rem(500);
   }
 
   &__menu{
+    font-weight: 600;
+    font-size: rem(35);
+    letter-spacing: 0.1em;
+    align-self: center;
+    text-align: right;
+
     @media (max-width: $mobile) {
       grid-row: 1;
       grid-column: 2;
@@ -58,6 +84,12 @@ $changeGridWidth: rem(500);
       }
     }
   }
+}
+
+.menu-list{
+  display: flex;
+  flex-direction: column;
+  gap: rem(59);
 }
 
 //Burger

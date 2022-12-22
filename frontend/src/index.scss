@@ -2,7 +2,6 @@
 
 @import "src/styles/fonts/fonts";
 
-
 // Подключение миксинов ===========================================================================================================================================================================================================================================================================
 @import "src/styles/base/mixins";
 @import "src/styles/variables";
@@ -11,6 +10,7 @@
 //&display=swap - добавить при подключении через плагин
 @import url(https://fonts.googleapis.com/css?family=Raleway:200&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Nosifer:regular&display=swap); // Nosifer
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,regular,500,600,700,900&display=swap);
 
 // Подключить если есть локальные файлы шрифтов
 
