@@ -93,6 +93,8 @@ $changeGridWidth: rem(570);
       }
     }
   }
+
+
 }
 
 .menu-list{
@@ -113,6 +115,14 @@ $changeGridWidth: rem(570);
     gap: rem(20);
     padding-right: rem(20);
     padding-top: rem(60);
+  }
+
+  &__link{
+    transition: color 0.3s ease 0s;
+
+    &:hover{
+      color: rgba(0, 0, 0, 0.41);
+    }
   }
 }
 
