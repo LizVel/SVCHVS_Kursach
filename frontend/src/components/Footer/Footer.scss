@@ -1,0 +1,39 @@
+@use "sass:math";
+@import "src/styles/base/mixins";
+@import "src/styles/variables";
+
+$footerFirstBreak: rem(800);
+$footerSecondBreak: rem(690);
+
+.footer{
+  font-family: "Noto Serif KR";
+  font-weight: 700;
+  font-size: rem(15);
+  letter-spacing: 0.2em;
+
+  @media (max-width: $footerFirstBreak) {
+    font-size: rem(14);
+  }
+
+  @media (max-width: $footerSecondBreak) {
+    font-size: rem(5);
+  }
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: rem(32) 0;
+
+    @media (max-width: $footerFirstBreak) {
+      padding: rem(23) 0;
+    }
+
+    @media (max-width: $footerSecondBreak) {
+      padding: rem(12) 0;
+    }
+  }
+
+  &__text{}
+}

@@ -39,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: #F1F1F1;
   // Прижимаем footer
   > main {
     flex: 1 1 auto;

@@ -12,6 +12,7 @@ import thirdBackground from "./img/quotes/third/background.jpg";
 import * as flsFunctions from "./burger-menu";
 import {Sliders} from "./components/Sliders/Sliders";
 import {Quote} from "./components/Quote/Quote";
+import {Footer} from "../../components/Footer/Footer";
 
 interface QuoteInfo{
     authorImage: string;
@@ -90,6 +91,7 @@ export function MainPage() {
             </div>
 
         </main>
+        <Footer/>
     </div>
   );
 }
