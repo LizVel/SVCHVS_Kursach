@@ -1,13 +1,14 @@
 import React from "react";
 import "./NewCard.scss";
 import {NewsAreaCard} from "../data";
+import {Link} from "react-router-dom";
 
-export function NewCard({title, type, text, county, image}: NewsAreaCard) {
+export function NewCard({title, type, text, county, image, id}: NewsAreaCard) {
     return (
         <article className="new-card">
-            <div className="new-card__image-ibg">
+            <Link to={`/information?id=${id}`} className="new-card__image-ibg">
                 <img src={image} alt=""/>
-            </div>
+            </Link>
             <div className={"new-card__body"}>
                 {county
                     ? <div className={"new-card__country"}>{county}</div>

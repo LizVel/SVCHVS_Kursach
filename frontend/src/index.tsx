@@ -11,6 +11,7 @@ import {StartPage} from "./pages/StartPage/StartPage";
 import {LoginPage} from "./pages/ LoginPage/ LoginPage";
 import {MainPage} from "./pages/MainPage/MainPage";
 import {NewsArea} from "./pages/NewsArea/NewsArea";
+import {CardFullDescriptionPage} from "./pages/CardFullDescriptionPage/CardFullDescriptionPage";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "news-area",
                 element: <NewsArea/>,
+            },
+            {
+                path: "information",
+                element: <CardFullDescriptionPage/>,
             },
         ],
     },

@@ -29,12 +29,8 @@ export function NewsArea() {
                         </div>
                         <section className={"news-area__body"}>
                             {items.map((_, index)=>
-                                <NewCard key={`new-card-${index}`}
-                                    type={_.type}
-                                         title={_.title}
-                                         text={_.text}
-                                         image={_.image}
-                                        county={_.county}/>
+                                <NewCard key={_.id}
+                                         {..._}/>
                                 )}
                         </section>
                     </div>
