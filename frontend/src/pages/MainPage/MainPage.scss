@@ -6,30 +6,26 @@ $changeGridWidth: rem(500);
 
 .main-page{
 
-  padding: 0 rem(55);
+
   background: #F1F1F1;
 
-  &__section{
-    max-width: rem(1440);
-    height: 100vh;
+  &__container{
+    padding: 0 rem(55);
+  }
 
+
+  &__section{
+    padding-bottom: rem(50);
   }
 }
 
 .header{
   font-family: "Noto Serif KR";
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  column-gap: rem(50);
 
-
-  &__body{
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto 1fr;
-    column-gap: rem(50);
-    height: 100vh;
-    padding-bottom: rem(50);
-  }
 
   &__title{
     font-weight: 700;

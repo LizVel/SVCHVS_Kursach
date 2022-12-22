@@ -15,8 +15,9 @@ export function MainPage() {
 
     <div className="wrapper">
         <main className={"main-page"}>
-            <section className={"main-page__section header"}>
-                <div className={"header__body"}>
+            <div className={"main-page__container"}>
+                <section className={"main-page__section header"}>
+
                     <div className={"header__title"}>VIEW</div>
 
                     <div className={"header__slider"}>
@@ -41,12 +42,14 @@ export function MainPage() {
                             </li>
                         </ul>
                     </nav>
-                </div>
 
-            </section>
-            <section>
-                dfsdfsdfdsf
-            </section>
+
+                </section>
+                <section>
+                    dfsdfsdfdsf
+                </section>
+            </div>
+
         </main>
     </div>
   );
