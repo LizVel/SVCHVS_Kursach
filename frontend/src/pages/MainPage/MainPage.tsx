@@ -4,6 +4,7 @@ import firstImage from "./img/first-image.jpg";
 import secondImage from "./img/second-image.jpg";
 import thirdImage from "./img/third-image.jpg";
 import * as flsFunctions from "./burger-menu";
+import {Sliders} from "./components/Sliders/Sliders";
 
 export function MainPage() {
     useEffect(() => {
@@ -11,14 +12,17 @@ export function MainPage() {
     }, [])
 
   return (
+
     <div className="wrapper">
         <main className={"main-page"}>
             <section className={"main-page__section header"}>
                 <div className={"header__title"}>VIEW</div>
+
                 <div className={"header__slider"}>
-                    <div className="header__image-ibg">
+      {/*              <div className="header__image-ibg">
                         <img src={firstImage} alt="" />
-                    </div>
+                    </div>*/}
+                    <Sliders images={[firstImage, secondImage, thirdImage]}/>
                 </div>
                 <nav className="header__menu menu">
                     <button type="button" className="menu__icon icon-menu">
