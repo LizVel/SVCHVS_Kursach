@@ -1,0 +1,88 @@
+@use "sass:math";
+@import "src/styles/base/mixins";
+@import "src/styles/variables";
+
+$firstBreak: rem(1050);
+$secondBreak: rem(620);
+
+.quotes{
+  color: #FFFFFF;
+
+  &:not(:last-child){
+    margin-bottom: rem(54);
+  }
+
+  @media (max-width: $firstBreak) {
+    &:not(:last-child){
+      margin-bottom: rem(35);
+    }
+  }
+
+  @media (max-width: $secondBreak) {
+    &:not(:last-child){
+      margin-bottom: rem(20);
+    }
+  }
+
+
+  &__container{
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: rem(150) rem(128) rem(110) rem(128);
+
+    @media (max-width: $firstBreak) {
+      padding: rem(69) rem(50) rem(38) rem(50);
+    }
+
+    @media (max-width: $secondBreak) {
+      padding: rem(40) 0 rem(14) 0;
+    }
+  }
+
+  &__image{
+    @media (max-width: $firstBreak) {
+      width: rem(150);
+    }
+
+    @media (max-width: $secondBreak) {
+      width: rem(60);
+    }
+  }
+
+  &__text{
+    font-weight: 300;
+    font-size: rem(30);
+    line-height: math.div(43, 30);
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin: rem(45) 0 rem(25) 0;
+
+    @media (max-width: $firstBreak) {
+      font-size: rem(20);
+    }
+
+    @media (max-width: $secondBreak) {
+      font-size: rem(12);
+      margin: rem(5) 0 rem(12) 0;
+    }
+
+  }
+
+  &__author-name{
+    font-weight: 700;
+    font-size: rem(35);
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    @media (max-width: $firstBreak) {
+      font-size: rem(25);
+    }
+
+    @media (max-width: $secondBreak) {
+      font-size: rem(15);
+    }
+  }
+}
