@@ -24,10 +24,6 @@ export function Sliders({images}: SlidersProps) {
                 speed={1000}
                 autoplay={{delay: 2000}}
                 onSwiper={setSwiperLocal}
-                onActiveIndexChange={({realIndex}) => {
-                    console.log(realIndex + 1);
-                    setActiveStep(realIndex)
-                }}
             >
                 {images.map((_, index) =>
                     <SwiperSlide key={`slide-${index}`}>

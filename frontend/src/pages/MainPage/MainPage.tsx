@@ -13,6 +13,7 @@ import * as flsFunctions from "./burger-menu";
 import {Sliders} from "./components/Sliders/Sliders";
 import {Quote} from "./components/Quote/Quote";
 import {Footer} from "../../components/Footer/Footer";
+import {Link} from "react-router-dom";
 
 interface QuoteInfo{
     authorImage: string;
@@ -68,13 +69,19 @@ export function MainPage() {
                         </button>
                         <ul className="menu__list menu-list">
                             <li className={"menu-list__item"}>
-                                <a className={"menu-list__link"}>TRAVEL</a>
+                                <Link to={`/news-area?type=travel`} className={"menu-list__link"}>
+                                    TRAVEL
+                                </Link>
                             </li>
                             <li className={"menu-list__item"}>
-                                <a className={"menu-list__link"}>DESIGN</a>
+                                <Link to={`/news-area?type=design`} className={"menu-list__link"}>
+                                    DESIGN
+                                </Link>
                             </li>
                             <li className={"menu-list__item"}>
-                                <a className={"menu-list__link"}>STYLE</a>
+                                <Link to={`/news-area?type=style`} className={"menu-list__link"}>
+                                    STYLE
+                                </Link>
                             </li>
                         </ul>
                     </nav>
@@ -83,7 +90,8 @@ export function MainPage() {
                 </section>
                 <section className={"main-page__quotes-section"}>
                     {quotes.map((_, index)=>
-                        <Quote authorImage={_.authorImage}
+                        <Quote key={`Quote-${index}`}
+                            authorImage={_.authorImage}
                                backgroundImage={_.backgroundImage}
                                text={_.text}
                                authorName={_.authorName}/>)}

@@ -10,6 +10,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import {StartPage} from "./pages/StartPage/StartPage";
 import {LoginPage} from "./pages/ LoginPage/ LoginPage";
 import {MainPage} from "./pages/MainPage/MainPage";
+import {NewsArea} from "./pages/NewsArea/NewsArea";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "main",
                 element: <MainPage/>,
+            },
+            {
+                path: "news-area",
+                element: <NewsArea/>,
             },
         ],
     },

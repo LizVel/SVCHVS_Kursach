@@ -1,0 +1,79 @@
+@use "sass:math";
+@import "src/styles/base/mixins";
+@import "src/styles/variables";
+
+$newsAreaFirstBreak: rem(1000);
+$newsAreaSecondBreak: rem(670);
+
+.new-card{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  &__image-ibg{
+    padding-bottom: percent(460, 650);
+  }
+
+  &__body{
+    padding-top: rem(15);
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+
+    @media (max-width: $newsAreaFirstBreak) {
+      padding-top: rem(10);
+      gap: rem(10);
+    }
+  }
+
+  &__empty{
+    height: rem(20);
+
+    @media (max-width: $newsAreaFirstBreak) {
+      height: rem(12);
+    }
+
+    @media (max-width: $newsAreaSecondBreak) {
+      height: 0;
+    }
+  }
+
+  &__country{
+    text-transform: uppercase;
+    font-family: 'Noto Serif KR';
+    font-weight: 300;
+    font-size: rem(20);
+    letter-spacing: 0.2em;
+
+    @media (max-width: $newsAreaFirstBreak) {
+      font-size: rem(12);
+    }
+  }
+
+  &__title{
+    font-family: 'Noto Serif KR';
+    font-weight: 700;
+    font-size: rem(30);
+    letter-spacing: 0.2em;
+
+    @media (max-width: $newsAreaFirstBreak) {
+      font-size: rem(15);
+    }
+  }
+
+  &__text{
+    font-weight: 200;
+    font-size: rem(15);
+    line-height: math.div(22, 15);
+    text-align: justify;
+    letter-spacing: 0.05em;
+
+    @media (max-width: $newsAreaFirstBreak) {
+      font-size: rem(10);
+    }
+
+    @media (max-width: $newsAreaSecondBreak) {
+      font-size: rem(12);
+    }
+  }
+}

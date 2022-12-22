@@ -1,0 +1,75 @@
+@use "sass:math";
+@import "src/styles/base/mixins";
+@import "src/styles/variables";
+
+$newsAreaFirstBreak: rem(1000);
+$newsAreaSecondBreak: rem(670);
+
+.news-area{
+  padding-bottom: rem(65);
+
+  @media (max-width: $newsAreaFirstBreak) {
+    padding-bottom: rem(32);
+  }
+
+  @media (max-width: $newsAreaSecondBreak) {
+    padding-bottom: rem(20);
+  }
+
+  &__container{}
+
+  &__title{
+    padding: rem(16) 0;
+    font-family: "Noto Serif KR";
+    font-weight: 700;
+    font-size: rem(40);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    @media (max-width: $newsAreaFirstBreak) {
+      font-size: rem(20);
+    }
+  }
+
+  &__body{
+    padding-top: rem(45);
+    display: flex;
+    flex-direction: row;
+    gap: rem(60);
+
+    @media (max-width: $newsAreaFirstBreak) {
+      gap: rem(50);
+    }
+
+    @media (max-width: $newsAreaSecondBreak) {
+      flex-direction: column;
+      padding-top: 0;
+      gap: rem(20);
+    }
+  }
+}
+
+.title-news-area{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+
+  @media (max-width: $newsAreaSecondBreak) {
+    flex-direction: column;
+    gap: rem(5);
+  }
+
+  &__first{}
+
+  &__second{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+    @media (max-width: $newsAreaSecondBreak) {
+      position: initial;
+      font-weight: 300;
+    }
+  }
+}
