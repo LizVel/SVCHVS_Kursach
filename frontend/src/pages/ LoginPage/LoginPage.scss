@@ -16,6 +16,19 @@ $mobileLoginPage: rem(460);
 
   &__container {
     padding: 0 rem(33);
+    position: relative;
+  }
+
+  &__server-error {
+    position: absolute;
+    text-align: center;
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -15%;
+    @include adaptiveValue("font-size", 20, 15);
   }
 
   &__form {

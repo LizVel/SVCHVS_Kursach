@@ -4,9 +4,12 @@ import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {FormSchema, FormSchemaType} from "./LoginFormValidationInfo";
 import {zodResolver} from "@hookform/resolvers/zod/dist/zod";
 import { useNavigate } from "react-router-dom";
+import {useLoginUserMutation} from "../../store/story/story.api";
+import {LoginRequest} from "../../models/LoginRequest";
 
 export function LoginPage() {
     const navigate = useNavigate();
+    const [loginUser, loginResult] = useLoginUserMutation();
 
     const {
         register,
@@ -20,8 +23,17 @@ export function LoginPage() {
     });
 
     const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
-        console.log("Submit data:", data)
-        navigate("/main")
+/*        console.log("Submit data:", data)
+        navigate("/main")*/
+        const loginRequest = data as LoginRequest;
+        loginRequest.username = loginRequest.username.trim()
+        loginRequest.password = loginRequest.password.trim()
+        loginUser(loginRequest).then((data) => {
+            const isLogin = data as { data: boolean };
+            if (isLogin.data) {
+                navigate("/main")
+            }
+        })
     };
 
 
@@ -29,6 +41,8 @@ export function LoginPage() {
         <div className="wrapper">
             <main className={"login-page"}>
                 <div className={"login-page__container"}>
+                    {loginResult.data !== undefined && !loginResult.data &&
+                        <div className={"login-page__server-error"}>Неправильный логин или пароль</div>}
                     <form className={"login-page__form"} onSubmit={handleSubmit(onSubmit)}>
                         <label className="login-page__section login-section">
                             <span className="login-section__label">Username *</span>
