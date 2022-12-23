@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
 import {
     createBrowserRouter, Outlet,
     RouterProvider,
@@ -12,6 +11,8 @@ import {LoginPage} from "./pages/ LoginPage/ LoginPage";
 import {MainPage} from "./pages/MainPage/MainPage";
 import {NewsArea} from "./pages/NewsArea/NewsArea";
 import {CardFullDescriptionPage} from "./pages/CardFullDescriptionPage/CardFullDescriptionPage";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,7 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    <React.StrictMode>
+    <Provider store={store}>
         <RouterProvider router={router}/>
-    </React.StrictMode>
+    </Provider>
 );

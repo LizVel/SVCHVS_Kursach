@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./CardFullDescriptionPage.scss";
 import {useQuery} from "../../hooks/useQuery";
-import {NewsAreaData} from "../NewsArea/data";
 import {CardFullInfos} from "../../data/CardFullInfos";
 import {CardFullInfo} from "../../models/CardFullInfo";
-import {Link} from "react-router-dom";
 import {Footer} from "../../components/Footer/Footer";
 
 export function CardFullDescriptionPage() {

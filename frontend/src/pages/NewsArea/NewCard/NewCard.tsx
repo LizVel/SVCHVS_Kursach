@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewCard.scss";
-import {NewsAreaCard} from "../data";
 import {Link} from "react-router-dom";
+import {NewsAreaCard} from "../../../models/NewsAreaCard";
 
 export function NewCard({title, type, text, county, image, id}: NewsAreaCard) {
     return (
