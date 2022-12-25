@@ -1,20 +1,23 @@
-﻿namespace ViewBackend.API.Requests;
+﻿using System;
 
-public class FullStoryInfo
+namespace ViewBackend.API.Requests
 {
-    public Guid Id { get; set; }
-    
-    public string? Country { get; set; }
-    
-    public string Title { get; set; }
-    
-    public string Subtitle { get; set; }
-    
-    public string Text { get; set; } 
-    
-    public string MainImage { get; set; }
-    
-    public string FirstAdditionalImage { get; set; }
-    
-    public string SecondAdditionalImage { get; set; }
+    public class FullStoryInfo
+    {
+        public Guid Id { get; set; }
+
+        public string? Country { get; set; }
+
+        public string Title { get; set; } = default!;
+
+        public string Subtitle { get; set; } = default!;
+
+        public string Text { get; set; } = default!;
+
+        public string MainImage { get; set; } = default!;
+
+        public string FirstAdditionalImage { get; set; } = default!;
+
+        public string SecondAdditionalImage { get; set; } = default!;
+    }
 }

@@ -1,8 +1,10 @@
-﻿namespace ViewBackend.API.Requests;
-
-public class UserLoginRequest
+﻿namespace ViewBackend.API.Requests
 {
-    public string Username { get; set; } = default!;
+    public class UserLoginRequest
+    {
+        public string Username { get; set; } = default!;
     
-    public string Password { get; set; } = default!;
+        public string Password { get; set; } = default!;
+    }
 }
+

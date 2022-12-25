@@ -1,16 +1,19 @@
-﻿namespace ViewBackend.API.Requests;
+﻿using System;
 
-public class ShortStoryInfo
+namespace ViewBackend.API.Requests
 {
-    public Guid Id { get; set; }
-    
-    public string Image { get; set; }
-    
-    public string Type { get; set; }
-    
-    public string? Country { get; set; }
-    
-    public string Title { get; set; }
-    
-    public string Text { get; set; } 
+    public class ShortStoryInfo
+    {
+        public Guid Id { get; set; }
+
+        public string Image { get; set; } = default!;
+
+        public string Type { get; set; } = default!;
+
+        public string? Country { get; set; }
+
+        public string Title { get; set; } = default!;
+
+        public string Text { get; set; } = default!;
+    }
 }

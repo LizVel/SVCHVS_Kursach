@@ -1,10 +1,15 @@
-﻿using System.Net.Mime;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net.Mime;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using ViewBackend.API.Constants;
 using ViewBackend.API.Models;
 
-namespace ViewBackend.API;
-
-public class SeedData
+namespace ViewBackend.API
+{
+    public class SeedData
 {
     public static async Task SeedDataAsync(ApplicationContext context, IWebHostEnvironment environment)
     {
@@ -139,3 +144,5 @@ public class SeedData
         return base64ImageRepresentation;
     }
 }
+}
+

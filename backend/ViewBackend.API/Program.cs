@@ -1,71 +1,39 @@
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using ViewBackend.API;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-var sqlConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<ApplicationContext>(options =>
+namespace ViewBackend.API
 {
-    options.UseSqlServer(sqlConnectionString);
-});
-
-
-
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(
-        "CorsPolicy",
-        builder =>
+    internal class Program
+    {
+        public static async Task Main(string[] args)
         {
-            builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader();
-        });
-});
+            var host = CreateHostBuilder(args).Build();
 
-var app = builder.Build();
+            await CreateDbIfNotExists(host);
 
+            await host.RunAsync();
+        }
 
+        private static async Task CreateDbIfNotExists(IHost host)
+        {
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
 
-using (var scope = app.Services.CreateScope()) {
-    var services = scope.ServiceProvider;
+                var context = services.GetRequiredService<ApplicationContext>();
+                var environment = services.GetRequiredService<IWebHostEnvironment>();
 
-    var context = services.GetRequiredService<ApplicationContext>();
-    await SeedData.SeedDataAsync(context, app.Environment);
+                await SeedData.SeedDataAsync(context, environment);
+            }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+        }
+    }
 }
-
-/*using (ServiceProvider serviceProvider = app.Services.GetService())
-{
-    // Review the FormMain Singleton.
-    var formMain = serviceProvider.GetRequiredService<FormMain>();
-    Application.Run(formMain);
-}*/
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.UseCors("CorsPolicy");
-
-app.MapControllers();
-
-app.Run();

@@ -1,8 +1,9 @@
-﻿namespace ViewBackend.API.Constants;
-
-public static class StoryTypes
+﻿namespace ViewBackend.API.Constants
 {
-    public const string Travel = "travel";
-    public const string Design = "design";
-    public const string Style = "style";
+    public static class StoryTypes
+    {
+        public const string Travel = "travel";
+        public const string Design = "design";
+        public const string Style = "style";
+    }
 }
